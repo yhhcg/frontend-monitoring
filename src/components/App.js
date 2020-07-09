@@ -47,12 +47,6 @@ class App extends Component {
     this.buyItem = this.buyItem.bind(this);
     this.checkout = this.checkout.bind(this);
     this.resetCart = this.resetCart.bind(this);
-
-    // generate unique sessionId and set as Sentry tag
-    this.sessionId = getUniqueId();
-    Sentry.configureScope(scope => {
-      scope.setTag("session_id", this.sessionId);
-    });
   }
 
   componentDidMount() {
@@ -119,10 +113,9 @@ class App extends Component {
 
     // perform request (set transctionID as header and throw error appropriately)
     request.post({
-        url: "http://localhost:3000/checkout",
+        url: "http://localhost:8000/checkout",
         json: order,
         headers: {
-          "X-Session-ID": this.sessionId,
           "X-Transaction-ID": transactionId
         }
       }, (error, response) => {
