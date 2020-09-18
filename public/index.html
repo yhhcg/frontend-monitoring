@@ -52,4 +52,17 @@
     -->
 </body>
 
+<script
+  src="https://browser.sentry-cdn.com/5.21.4/bundle.tracing.min.js"
+  integrity="sha384-L18Y4dnHG3rj58y7WwOZH5ZKkXqPhaf5M9QItUT/MB5t71mgOwtxs83RI+4m/nE5"
+  crossorigin="anonymous"
+></script>
+
+<script>
+  Sentry.init({
+    dsn: 'http://f7e78eefbbd64e618fa44a6cb1180c72@localhost:9000/4',
+    release: "%REACT_APP_RELEASE_VERSION%"
+  });
+</script>
+
 </html>

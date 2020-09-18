@@ -7,8 +7,6 @@ SENTRY_PROJECT=javascript
 
 REACT_APP_RELEASE_VERSION=`sentry-cli releases propose-version`
 
-# setup_release: $(info ************ RELEASE VERSIOIN **********)
-
 setup_release: create_release upload_sourcemaps
 
 create_release:
